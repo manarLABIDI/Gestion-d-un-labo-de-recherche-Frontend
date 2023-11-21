@@ -1,1 +1,27 @@
-<p>member-form works!</p>
+<form [formGroup]="form">
+    <p>
+      <mat-form-field appearance="fill" width="100">
+        <mat-label>CIN</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill" width="100">
+        <mat-label>NAME</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill" width="100">
+        <mat-label>CV</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </p>
+    <p>
+      <mat-form-field appearance="fill" width="100">
+        <mat-label>TYPE</mat-label>
+        <input matInput placeholder="Placeholder">
+      </mat-form-field>
+    </p>
+  <button type="submit">create</button>
+</form>

@@ -9,19 +9,28 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MemberFormComponent } from './member-form/member-form.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DoctorComponent } from './doctor/doctor.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberComponent,
-    MemberFormComponent
+    MemberFormComponent,
+    DoctorComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatTableModule,
     MatIconModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,FormsModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

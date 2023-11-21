@@ -10,6 +10,6 @@ import { GLOBAL } from '../app-config';
   styleUrls: ['./member.component.css']
 })
 export class MemberComponent {
-  dataSource: MatTableDataSource<Member> = new MatTableDataSource<Member>(GLOBAL._db.members);
+  dataSource: any[] = GLOBAL._db.members;
   displayedColumns: string[] = ['id', 'cin', 'name', 'createdDate', 'cv', 'type', 'action'];
 }
