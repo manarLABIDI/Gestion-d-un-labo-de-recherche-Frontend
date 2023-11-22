@@ -12,6 +12,8 @@ import { Member } from '../models/Member';
 })
 export class MemberFormComponent implements OnInit {
   form !: FormGroup;
+  MembreGlobal!: Member;
+  member2!:Member;
 
   constructor(private MS: MemberService, private fb: FormBuilder, private router: Router , private activatedRoute : ActivatedRoute) {
    
@@ -42,6 +44,7 @@ export class MemberFormComponent implements OnInit {
     if (!!currentId) {
       // Editing an existing member, fetch the member by ID and initialize the form
       this.MS.getMemberById(currentId).subscribe((item) => {
+        this.MembreGlobal=item;
         this.initForm3(item);
       });
     } else {
@@ -53,9 +56,10 @@ export class MemberFormComponent implements OnInit {
 
   OnSub(): void {
     console.log(this.form.value);
-    const member = {
-      ...this.form.value,
-      id: Math.ceil(Math.random() * 1000),
+    
+    const member =  {... this.MembreGlobal,...this.form.value}; 
+     this.member2= {...member,
+      id: member.id ?? Math.ceil(Math.random() * 1000),
       createdDate: new Date().toISOString()
     };
     this.MS.saveMember(member).subscribe(() => {

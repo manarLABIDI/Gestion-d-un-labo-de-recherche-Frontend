@@ -16,14 +16,17 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatButtonModule } from '@angular/material/button';
-
+import {MatInputModule } from '@angular/material/input';
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConfirmdialogComponent } from './confirmdialog/confirmdialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberComponent,
     MemberFormComponent,
-    DoctorComponent
+    DoctorComponent,
+    ConfirmdialogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { MatButtonModule } from '@angular/material/button';
     AppRoutingModule,
     MatFormFieldModule,
     ReactiveFormsModule,FormsModule,HttpClientModule,
-    FlexLayoutModule,MatButtonModule
+    FlexLayoutModule,MatButtonModule,MatInputModule,
+    MatDialogModule
     
 
   ],

@@ -9,26 +9,51 @@ import { Member } from '../models/Member';
   providedIn: 'root'
 })
 export class MemberService {
+  constructor(private httpClient: HttpClient) {}
+  tab: Member[] = GLOBAL._db.members;
+  memberToSave!: Member;
+  saveMember(member: any): Observable<void> {
+    /*this.httpClient.post<Member>(
+      'http://localhost:9000/MEMBRE-SERVICE',
+      member
+    );*/
 
-tab: Member[]=GLOBAL._db.members;
-constructor(private httpclient:HttpClient){}
+    this.memberToSave = {
+      ...member,
+      id: member.id ?? Math.ceil(Math.random() * 10000),
+      createdDate: member.createdDate ?? new Date().toISOString(),
+    };
+    this.tab = [
+      this.memberToSave,
+      ...this.tab.filter((item) => item.id != this.memberToSave.id),
+    ];
+    return new Observable((observer) => {
+      observer.next();
+    });
+  }
 
-saveMember(member:Member):Observable<void>{
-    
-  // this.httpclient.post<Member>("linktoRestAPI",member); si j'ai le backend
-  const memberTosave={...member,id:Math.ceil(Math.random()*1000),
-  createdDate:new Date ().toISOString()};
+  getMemberById(idCourant: String): Observable<Member> {
+    /*this.httpClient.get<Member>(
+      'http://localhost:9000/MEMBRE-SERVICE/fullmember/'+idCourant,
+    );*/
 
-  
-  this.tab.push(member);
-  return new Observable((observer=>{observer.next()})) //e foset next vide car c'est un void 
-}
-getMemberById(idcourant: string): Observable<Member> {
-  // return this.httpclient.get<Member>('linktoRestAPI'); // uncomment if you have a backend
+    return new Observable((observer) => {
+      observer.next(this.tab.find((item) => item.id == idCourant));
+    });
+  }
 
-  return new Observable((observer) => {
-    observer.next(this.tab.find((item) => item.id === idcourant));
-  });
-}
-
+  deleteMember(id: string): Observable<void> {
+    // Implement your delete logic, e.g., send a delete request to the backend
+    // return this.httpclient.delete<void>('linktoRestAPI');
+    this.tab = this.tab.filter((item) => item.id !== id);
+    return new Observable((observer) => {
+      observer.next();
+    });
+  }
+  getAllMembers(): Observable<Member[]> {
+    // return this.httpclient.get<Member[]>('localhot:9000/memeber-service/members');
+    return new Observable((observer) => {
+      observer.next(this.tab);
+    });
+  }
 }
