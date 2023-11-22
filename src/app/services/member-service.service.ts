@@ -12,14 +12,23 @@ export class MemberService {
 
 tab: Member[]=GLOBAL._db.members;
 constructor(private httpclient:HttpClient){}
-saveMember(member:any):Observable<void>{
-  
-// this.httpclient.post<Member>("linktoRestAPI",member);
-const memberTosave={...member,
-  id:Math.ceil(Math.random()*1000)
-  ,createdDate:new Date ().toISOString()};
 
-this.tab=[memberTosave,...this.tab.filter(item=>item.id!=memberTosave.id)]
-return new Observable((observer=>{observer.next()}))
+saveMember(member:Member):Observable<void>{
+    
+  // this.httpclient.post<Member>("linktoRestAPI",member); si j'ai le backend
+  const memberTosave={...member,id:Math.ceil(Math.random()*1000),
+  createdDate:new Date ().toISOString()};
+
+  
+  this.tab.push(member);
+  return new Observable((observer=>{observer.next()})) //e foset next vide car c'est un void 
 }
+getMemberById(idcourant: string): Observable<Member> {
+  // return this.httpclient.get<Member>('linktoRestAPI'); // uncomment if you have a backend
+
+  return new Observable((observer) => {
+    observer.next(this.tab.find((item) => item.id === idcourant));
+  });
+}
+
 }

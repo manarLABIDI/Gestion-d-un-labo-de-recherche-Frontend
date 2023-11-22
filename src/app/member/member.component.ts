@@ -4,6 +4,7 @@ import { Member } from '../models/Member';
 import { GLOBAL } from '../app-config';
 
 
+
 @Component({
   selector: 'app-member',
   templateUrl: './member.component.html',

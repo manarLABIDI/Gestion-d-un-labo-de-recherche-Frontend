@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
+
+import { MemberService } from '../services/member-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Member } from '../models/Member';
 
 @Component({
   selector: 'app-member-form',
@@ -7,13 +11,55 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   styleUrls: ['./member-form.component.css']
 })
 export class MemberFormComponent implements OnInit {
-  form: FormGroup = this.fb.group({}); 
+  form !: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
-
-  ngOnInit() {
+  constructor(private MS: MemberService, private fb: FormBuilder, private router: Router , private activatedRoute : ActivatedRoute) {
    
   }
-
  
+  //initialiser le form pour route /id/edit
+  initForm3(memberbyid: Member): void {
+    this.form = new FormGroup({
+      cin: new FormControl(memberbyid.cin, [Validators.required]),
+      name: new FormControl(memberbyid.name, [Validators.required]),
+      cv: new FormControl(memberbyid.cv, [Validators.required]),
+      type: new FormControl(memberbyid.type, [Validators.required]),
+    });
+  }
+  //initialiser le form pour route /create
+  initForm(): void {
+    this.form = new FormGroup({
+      cin: new FormControl(null, [Validators.required]),
+      name: new FormControl(null, [Validators.required]),
+      cv: new FormControl(null, [Validators.required]),
+      type: new FormControl(null, [Validators.required]),
+    });
+  }
+  
+
+  ngOnInit() {
+    const currentId = this.activatedRoute.snapshot.params['id'];
+    if (!!currentId) {
+      // Editing an existing member, fetch the member by ID and initialize the form
+      this.MS.getMemberById(currentId).subscribe((item) => {
+        this.initForm3(item);
+      });
+    } else {
+      // Creating a new member, initialize the form
+      this.initForm();
+    }
+  }
+  
+
+  OnSub(): void {
+    console.log(this.form.value);
+    const member = {
+      ...this.form.value,
+      id: Math.ceil(Math.random() * 1000),
+      createdDate: new Date().toISOString()
+    };
+    this.MS.saveMember(member).subscribe(() => {
+      this.router.navigate(['/members']);
+    });
+  }
 }

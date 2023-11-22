@@ -13,6 +13,10 @@ import { DoctorComponent } from './doctor/doctor.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonModule } from '@angular/material/button';
+
 
 @NgModule({
   declarations: [
@@ -28,7 +32,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     AppRoutingModule,
     MatFormFieldModule,
-    ReactiveFormsModule,FormsModule,
+    ReactiveFormsModule,FormsModule,HttpClientModule,
+    FlexLayoutModule,MatButtonModule
     
 
   ],

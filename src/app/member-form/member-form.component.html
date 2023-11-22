@@ -1,26 +1,26 @@
-<form [formGroup]="form">
+<form [formGroup]="form" (ngSubmit)="OnSub()">
     <p>
       <mat-form-field appearance="fill" width="100">
         <mat-label>CIN</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="CIN" formControlName="cin">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" width="100">
         <mat-label>NAME</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="Name" formControlName="name">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" width="100">
         <mat-label>CV</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="CV" formControlName="cv">
       </mat-form-field>
     </p>
     <p>
       <mat-form-field appearance="fill" width="100">
         <mat-label>TYPE</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input matInput placeholder="Type" formControlName="type">
       </mat-form-field>
     </p>
   <button type="submit">create</button>
