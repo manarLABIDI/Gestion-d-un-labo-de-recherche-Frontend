@@ -27,7 +27,7 @@ export class MemberComponent {
       this.dataSource = members;
     });
   }
-  
+  //lancer la boite 
   onDelete(memberId: string): void {
     this.MS.deleteMember(memberId).subscribe(() => {
       this.fetch();
