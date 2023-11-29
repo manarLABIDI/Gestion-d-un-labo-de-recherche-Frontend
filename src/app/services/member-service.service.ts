@@ -4,6 +4,7 @@ import { GLOBAL } from '../app-config';
 import { Observable } from 'rxjs';
 
 import { Member } from '../models/Member';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ export class MemberService {
   constructor(private httpClient: HttpClient) {}
   tab: Member[] = GLOBAL._db.members;
   memberToSave!: Member;
+ 
   saveMember(member: any): Observable<void> {
     /*this.httpClient.post<Member>(
       'http://localhost:9000/MEMBRE-SERVICE',
@@ -56,4 +58,10 @@ export class MemberService {
       observer.next(this.tab);
     });
   }
+  
+
+  
+  
+
+
 }

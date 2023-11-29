@@ -4,6 +4,14 @@
   </button>
 </div>
 
+<div fxLayout="row" fxLayoutAlign="start center" style="margin-bottom: 16px;">
+  <mat-form-field>
+    <input matInput (input)="applyFilter($event)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+
+
 
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
@@ -52,7 +60,7 @@
             </button>
             
          
-         <!-- Your  <button (click)="openConfirmationDialog(member.id)">Delete</button> template -->
+         <!-- <button (click)="openConfirmationDialog(element.id)" class="delete-button"> -->
         
          
           <button (click)="onDelete(element.id)" class="delete-button">
