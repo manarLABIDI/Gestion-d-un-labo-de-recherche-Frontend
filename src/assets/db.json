@@ -1,4 +1,23 @@
 {
+    "events":[
+      { 
+      "id" : "123",
+      "title" : "Conference",
+      "dateDebut" : "10/12/2020",
+      "dateFin" : "12/12/2020",
+      "lieu" : "Sfax"
+
+    
+    }
+    ]
+    ,
+    "articles": [
+      
+     
+    ],
+    "tools":[
+      
+    ],
     "members": [
       {
         "id": "12233",
@@ -6,7 +25,8 @@
         "name": "manar",
         "createdDate": "12/12/2020",
         "cv": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf?fbclid=IwAR2Iv_59cNTcqXPHJ3ADmgPE1_BSye7m0ZxSfiJA0H55vnVsAuaADdiQ5oY",
-        "type": "student"
+        "type": "student",
+        "tab_pub": ["pub1"]
       },
       {
         "id": "565",
@@ -14,7 +34,8 @@
         "name": "ali",
         "createdDate": "12/12/2020",
         "cv": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf?fbclid=IwAR2Iv_59cNTcqXPHJ3ADmgPE1_BSye7m0ZxSfiJA0H55vnVsAuaADdiQ5oY",
-        "type": "teacher"
+        "type": "teacher",
+        "tab_pub": ["pub3", "pub2", "pub3", "pub7", "pub9"]
       },
       {
         "id": "88",
@@ -22,7 +43,8 @@
         "name": "sabrine",
         "createdDate": "12/12/2020",
         "cv": "https://www.cdc.gov/polio/stop/pdf/stop-cv-format.pdf?fbclid=IwAR2Iv_59cNTcqXPHJ3ADmgPE1_BSye7m0ZxSfiJA0H55vnVsAuaADdiQ5oY",
-        "type": "teacher"
+        "type": "teacher",
+        "tab_pub": ["pub3"]
       }
     ]
   }

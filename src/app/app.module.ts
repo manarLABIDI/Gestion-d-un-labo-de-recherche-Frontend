@@ -31,6 +31,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {FirebaseModule}  from './Firebase.module';
 import { LoginComponent } from './login/login.component';
 import {MatCardModule} from '@angular/material/card';
+import { EventFormComponent } from './event-form/event-form.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -44,7 +48,8 @@ import {MatCardModule} from '@angular/material/card';
     ToolsComponent,
     EventsComponent,
     ArticleComponent,
-    LoginComponent
+    LoginComponent,
+    EventFormComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +62,7 @@ import {MatCardModule} from '@angular/material/card';
     FlexLayoutModule,MatButtonModule,MatInputModule,
     MatDialogModule,MatToolbarModule,
     FirebaseModule,
-    MatCardModule
+    MatCardModule,MatDatepickerModule, MatNativeDateModule,NgChartsModule
     
 
   ],

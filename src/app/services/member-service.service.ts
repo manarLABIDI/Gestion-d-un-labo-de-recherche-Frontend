@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { GLOBAL } from '../app-config';
-import { Observable } from 'rxjs';
+import { Observable, count } from 'rxjs';
 
 import { Member } from '../models/Member';
-import { MatTableDataSource } from '@angular/material/table';
+
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +57,19 @@ export class MemberService {
     return new Observable((observer) => {
       observer.next(this.tab);
     });
+  }
+  tabpub: number[]=[];
+  count: number=0;
+
+
+  getNBPubMembers():Observable<number[]>{
+    for(let i =0; i<this.tab.length;i++){
+      this.count=0;
+      this.count=this.tab[i].tab_pub.length;
+      this.tabpub.push(this.count);
+    }
+    return  new Observable(observer=> observer.next(this.tabpub))
+
   }
   
 

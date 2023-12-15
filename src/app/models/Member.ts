@@ -4,6 +4,7 @@ export interface Member {
     name:string,
     createdDate:string,
     cv: string,
-    type:string
-
+    type:string,
+    tab_pub: string[];
+//dans backend tableau aticles
 }

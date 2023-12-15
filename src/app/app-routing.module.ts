@@ -8,20 +8,22 @@ import { EventsComponent } from './events/events.component';
 import { ToolsComponent } from './tools/tools.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { LoginComponent } from './login/login.component';
+import { EventFormComponent } from './event-form/event-form.component';
 
 
 const routes: Routes = [
-  { path: '', component: MemberComponent },
+  { path: '', component: LoginComponent },
   { path: 'members', pathMatch: 'full', component: MemberComponent },
   { path: ':id/edit', pathMatch: 'full', component: MemberFormComponent },
   { path: 'memberform', pathMatch: 'full', component: MemberFormComponent },
   { path: 'articles', pathMatch: 'full', component: ArticleComponent },
   { path: 'events', pathMatch: 'full', component: EventsComponent },
   { path: 'tools', pathMatch: 'full', component: ToolsComponent },
-  { path: 'sign', pathMatch: 'full', component: LoginComponent },
+  { path: 'login', pathMatch: 'full', component: LoginComponent },
   { path: 'dashboard', pathMatch: 'full', component: DashboardComponent },
+  { path: 'eventform', pathMatch: 'full', component: EventFormComponent },
   
-  { path: '**', pathMatch: 'full', redirectTo: 'members' }
+  { path: '**', pathMatch: 'full', redirectTo: 'login' }
 ];
 
 
